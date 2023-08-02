@@ -67,6 +67,7 @@ def getCurrentHouseInfo(id, spid=5444):
     mainImgPaths = list()
 
     for h in range(len(data['MainImages'])):
+
         url = data['MainImages'][h]['value']
         dlImage(url, str(h), id, "main")
         path = f"images/{id}/{h}.jpg"
@@ -197,7 +198,10 @@ def main():
     HouseIDs = getFirstHouseIds(77, 619, 5444)
     data = list()
     for h in range(len(HouseIDs)):
+        print(f"[#] Обрабатываю объявление №{h}/{len(HouseIDs)}")
         data.append(getCurrentHouseInfo(HouseIDs[h]))
+
+    print(f"[!] Обработка объявлений завершена успешно!")
 
     writeExcelData(data, "test1")
     # writeExcelData(data=getCurrentHouseInfo(13890), filename="testOut")
