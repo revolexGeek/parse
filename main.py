@@ -164,28 +164,28 @@ def writeExcelData(data, filename="output"):
     # Запись заголовков столбцов
     headers = list(data[0].keys())
     for col_num, header in enumerate(headers, 1):
-        worksheet_spb.cell(row=1, column=col_num).value = header
+        worksheet_moscow.cell(row=1, column=col_num).value = header
 
     print("[/] Начинаю запись строк из полученных данных..")
     current_row = 2
     for h in range(len(data)):
-        worksheet_spb[f'A{current_row}'].value = data[h]['BuildingId']
-        worksheet_spb[f'B{current_row}'].value = data[h]['MainImages']
-        worksheet_spb[f'C{current_row}'].value = data[h]['House']
-        worksheet_spb[f'D{current_row}'].value = data[h]['MinPrice']
-        worksheet_spb[f'E{current_row}'].value = data[h]['MaxPrice']
-        worksheet_spb[f'F{current_row}'].value = data[h]['Metro']
-        worksheet_spb[f'G{current_row}'].value = data[h]['MetroTime']
-        worksheet_spb[f'H{current_row}'].value = data[h]['Region']
-        worksheet_spb[f'I{current_row}'].value = data[h]['Zastroyshik']
-        worksheet_spb[f'J{current_row}'].value = data[h]['Sdacha']
-        worksheet_spb[f'K{current_row}'].value = data[h]['FloorsTotal']
-        worksheet_spb[f'L{current_row}'].value = data[h]['Otdelka']
-        worksheet_spb[f'M{current_row}'].value = data[h]['HouseType']
-        worksheet_spb[f'N{current_row}'].value = data[h]['Description']
-        worksheet_spb[f'O{current_row}'].value = data[h]['MinArea']
-        worksheet_spb[f'P{current_row}'].value = data[h]['MaxArea']
-        worksheet_spb[f'Q{current_row}'].value = data[h]['SubBuildings']
+        worksheet_moscow[f'A{current_row}'].value = data[h]['BuildingId']
+        worksheet_moscow[f'B{current_row}'].value = data[h]['MainImages']
+        worksheet_moscow[f'C{current_row}'].value = data[h]['House']
+        worksheet_moscow[f'D{current_row}'].value = data[h]['MinPrice']
+        worksheet_moscow[f'E{current_row}'].value = data[h]['MaxPrice']
+        worksheet_moscow[f'F{current_row}'].value = data[h]['Metro']
+        worksheet_moscow[f'G{current_row}'].value = data[h]['MetroTime']
+        worksheet_moscow[f'H{current_row}'].value = data[h]['Region']
+        worksheet_moscow[f'I{current_row}'].value = data[h]['Zastroyshik']
+        worksheet_moscow[f'J{current_row}'].value = data[h]['Sdacha']
+        worksheet_moscow[f'K{current_row}'].value = data[h]['FloorsTotal']
+        worksheet_moscow[f'L{current_row}'].value = data[h]['Otdelka']
+        worksheet_moscow[f'M{current_row}'].value = data[h]['HouseType']
+        worksheet_moscow[f'N{current_row}'].value = data[h]['Description']
+        worksheet_moscow[f'O{current_row}'].value = data[h]['MinArea']
+        worksheet_moscow[f'P{current_row}'].value = data[h]['MaxArea']
+        worksheet_moscow[f'Q{current_row}'].value = data[h]['SubBuildings']
         current_row += 1
 
     # Сохранение файла
@@ -194,12 +194,12 @@ def writeExcelData(data, filename="output"):
 
 
 def main():
-    HouseIDs = getFirstHouseIds(78, 266, 5444)
+    HouseIDs = getFirstHouseIds(77, 619, 5444)
     data = list()
     for h in range(len(HouseIDs)):
         data.append(getCurrentHouseInfo(HouseIDs[h]))
 
-    writeExcelData(data, "test2")
+    writeExcelData(data, "test1")
     # writeExcelData(data=getCurrentHouseInfo(13890), filename="testOut")
 
     # getFirstHouseIds(78, 266, 5444)
